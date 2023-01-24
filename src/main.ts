@@ -5,9 +5,9 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('api'); //cambia el prefijo global para ingresar a la api
 
-  app.useGlobalPipes(
+  app.useGlobalPipes( // sirve para usar los diferentes Pipes como el PipeUUID entre otros
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
