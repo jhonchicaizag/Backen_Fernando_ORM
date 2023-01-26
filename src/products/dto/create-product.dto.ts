@@ -40,8 +40,15 @@ export class CreateProductDto {
   sizes: string[];
   @IsIn(['men', 'women', 'kid', 'unisex'])
   gender: string;
+  @IsString({ each: true })
+  @IsArray()
+  @IsOptional()
+  tags: string[];
+  @IsString({ each: true })
+  @IsArray()
+  @IsOptional()
+  images?: string[];
 }
-
 
 // 3. Para crear el objeto en la base de datos, debemos agregar la inyeccion de dependencias en el constructor del service
 //     @InjectRepository(Product) private readonly productRepository: Repository<Product>,
